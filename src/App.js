@@ -4,23 +4,21 @@ import './App.css';
 
 function App() {
   return (
+    <div>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+   Please Choose a city
+    </div>
+    <SelectBox/>
     </div>
   );
-}
+};
+
+const SelectBox = ()=>(
+    <select value="1">
+      <option value="1">Horsens</option>
+      <option value="2">Aarhus</option>
+      <option value="3">Copenhagen</option>
+    </select>
+);
 
 export default App;

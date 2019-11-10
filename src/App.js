@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import './App.css';
+import dispatcher from './dispatcher';
 
 function App() {
   const [startDate, setStartDate] = useState(new Date());
@@ -40,11 +41,13 @@ function App() {
 };
 
 const SelectBox = ()=>(
-    <select class="form-control w-70" value="1">
-      <option value="1">Horsens</option>
-      <option value="2">Aarhus</option>
-      <option value="3">Copenhagen</option>
+    <select className="form-control w-70" value="1">
+      <option value="Horsens">Horsens</option>
+      <option value="Aarhus">Aarhus</option>
+      <option value="Copenhagen">Copenhagen</option>
     </select>
 );
 
-export default App;
+export default dispatcher => model => (
+  <App/>
+);

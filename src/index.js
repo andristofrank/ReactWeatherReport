@@ -1,10 +1,10 @@
 import ReactDOM from 'react-dom';
 import './index.css';
-import view from './App';
+import view from './App.js';
 import model from "./model.js";
 import dispatcher from"./dispatcher.js";
 import store from "./store.js"
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from './serviceWorker.js';
 
 async function init(){
     try{
@@ -26,7 +26,6 @@ async function init(){
       const wf_Cph = await fetch(
         "http://localhost:8080/forecast/Copenhagen"
       ).then(res => res.json());
-
       const theModel = model(
         wh_Horsens,
         wh_Aarhus,

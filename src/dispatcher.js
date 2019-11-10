@@ -1,11 +1,23 @@
 export default store => async ({type, ...params}) =>  {
+
     switch(type) {
+      case 'getCity':
+                const {city} = params.city;
+                store({type, ...params, city})
+                break;
+      case 'getByDateTo':
+                const{dateTo} = params.date;
+                store({type,...params,dateTo})
+    case 'getByDateFrom':
+             const{dateTo} = params.date;
+             store({type,...params,dateFrom})
       case 'getData':
-            const {city} = params.city;
-            const {dateFrom} = params.from;
-            const {dateTo} = params.to;
-            store({type,...params,city,dateFrom,dateTo})
-      case 'upDateDate':
+            const {dateFrom} = params.from | null;
+            const {dateTo} = params.to | null;
+
+            store({type, ...params, city, dateFrom, dateTo})
+            break;
+      case 'updateDate':
             const wh_Horsens = await fetch("http://localhost:8080/data/Horsens").then(
                 res => res.json()
               );
@@ -24,7 +36,9 @@ export default store => async ({type, ...params}) =>  {
               const wf_Cph = await fetch(
                 "http://localhost:8080/forecast/Copenhagen"
               ).then(res => res.json());
-              store({type,...params,wh_Horsens,wf_Horsens,wh_Aarhus,wf_Aarhus,wh_Cph,wf_Cph})
+              console.log(wh_Horsens);
+              store({type,...params, wh_Horsens, wf_Horsens, wh_Aarhus, wf_Aarhus, wh_Cph, wf_Cph});
+              
           break;
       default:
     }

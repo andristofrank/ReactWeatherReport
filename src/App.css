@@ -24,3 +24,8 @@
 .spacing-element {
   margin-bottom: 3;
 }
+.data_shown{
+  width: auto;
+  margin-top:50px;
+  max-height: 600px;
+}

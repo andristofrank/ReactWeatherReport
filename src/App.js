@@ -1,22 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import TimePicker from 'react-time-picker';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import './App.css';
-function App() {
 
+function App() {
+  const [startDate, setStartDate] = useState(new Date());
   return (
     <div>
     <div className="App">
       <h2>Please Choose a city</h2>
       <SelectBox/>
-     <DatePicker/>
-     <TimePicker/>
-     <DatePicker/>
-     <TimePicker/>
-     <button className="btn btn-success">Show Data</button>
+      <h3>From: </h3>
+      <DatePicker
+        selected = {startDate}
+        onChange = {date => setStartDate(date)}
+        showTimeSelect
+        timeFormat="HH:mm"
+        timeIntervals={15}
+        timeCaption="Time"
+        dateFormat="MMMM d, yyyy h:mm aa"
+      />
+      <h3>To: </h3>
+      <DatePicker
+        selected = {startDate}
+        onChange = {date => setStartDate(date)}
+        showTimeSelect
+        timeFormat="HH:mm"
+        timeIntervals={15}
+        timeCaption="Time"
+        dateFormat="MMMM d, yyyy h:mm aa"
+      />
+      <button className="btn btn-success">Show Data</button>
     </div>
 
     </div>
